@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IHT মডেল টেস্ট</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    .question h3 {
+      margin-bottom: 5px;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>IHT মডেল টেস্ট</h1>
+    <form id="quizForm">
+      <div class="question">
+        <h3>1. বাংলাদেশের রাজধানী কোনটি?</h3>
+        <input type="radio" name="q1" value="0"> চট্টগ্রাম<br>
+        <input type="radio" name="q1" value="1"> ঢাকা<br>
+        <input type="radio" name="q1" value="0"> খুলনা<br>
+        <input type="radio" name="q1" value="0"> রাজশাহী<br>
+      </div>
+
+      <div class="question">
+        <h3>2. ৫ + ৭ = ?</h3>
+        <input type="radio" name="q2" value="0"> 10<br>
+        <input type="radio" name="q2" value="1"> 12<br>
+        <input type="radio" name="q2" value="0"> 11<br>
+        <input type="radio" name="q2" value="0"> 13<br>
+      </div>
+
+      <div class="question">
+        <h3>3. 'Honest' এর বাংলা কী?</h3>
+        <input type="radio" name="q3" value="0"> সাহসী<br>
+        <input type="radio" name="q3" value="0"> ভদ্র<br>
+        <input type="radio" name="q3" value="1"> সৎ<br>
+        <input type="radio" name="q3" value="0"> নির্লজ্জ<br>
+      </div>
+
+      <div class="question">
+        <h3>4. মানবদেহে কতটি হাড় থাকে?</h3>
+        <input type="radio" name="q4" value="0"> 200<br>
+        <input type="radio" name="q4" value="1"> 206<br>
+        <input type="radio" name="q4" value="0"> 210<br>
+        <input type="radio" name="q4" value="0"> 180<br>
+      </div>
+
+      <div class="question">
+        <h3>5. H<sub>2</sub>O কোন মৌলিক পদার্থ?</h3>
+        <input type="radio" name="q5" value="0"> হাইড্রোজেন<br>
+        <input type="radio" name="q5" value="1"> পানি<br>
+        <input type="radio" name="q5" value="0"> অক্সিজেন<br>
+        <input type="radio" name="q5" value="0"> নাইট্রোজেন<br>
+      </div>
+
+      <div class="question">
+        <h3>6. তেজস্ক্রিয়তা আবিষ্কার করেন কে?</h3>
+        <input type="radio" name="q6" value="0"> নিউটন<br>
+        <input type="radio" name="q6" value="0"> আইনস্টাইন<br>
+        <input type="radio" name="q6" value="1"> হেনরি বেকেরেল<br>
+        <input type="radio" name="q6" value="0"> ম্যারি কুরি<br>
+      </div>
+
+      <div class="question">
+        <h3>7. “He goes to school.” — বাক্যটি কী ধরনের?</h3>
+        <input type="radio" name="q7" value="1"> Assertive<br>
+        <input type="radio" name="q7" value="0"> Interrogative<br>
+        <input type="radio" name="q7" value="0"> Imperative<br>
+        <input type="radio" name="q7" value="0"> Exclamatory<br>
+      </div>
+
+      <div class="question">
+        <h3>8. বাংলাদেশের স্বাধীনতা যুদ্ধ শুরু হয় কত সালে?</h3>
+        <input type="radio" name="q8" value="0"> 1965<br>
+        <input type="radio" name="q8" value="1"> 1971<br>
+        <input type="radio" name="q8" value="0"> 1975<br>
+        <input type="radio" name="q8" value="0"> 1947<br>
+      </div>
+
+      <button type="button" onclick="calculateScore()">সাবমিট করো</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateScore() {
+      const form = document.getElementById('quizForm');
+      const formData = new FormData(form);
+      let score = 0;
+
+      for (let [name, value] of formData.entries()) {
+        score += parseInt(value);
+      }
+
+      document.getElementById('result').innerText = `তোমার স্কোর: ${score} / 8`;
+    }
+  </script>
+</body>
+</html>
